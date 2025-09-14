@@ -1,0 +1,10 @@
+1. ¿Cuál es la diferencia en el tiempo de ejecución entre usar new y clone()?
+En new cada objeto tardaba más en crearse porque el constructor tenía un Thread.sleep que simula una tarea pesada.
+con clone() el segundo objeto salió casi al instante solo copia el primero en memoria y no vuelve a correr el constructor costoso.
+
+2. ¿Cuál es la ventaja clave de usar clone() en lugar de new Object() en este escenario?
+ahorro de tiempo y recursos, no se repite el proceso caro del constructor
+
+3. ¿En qué caso una copia superficial (shallow copy) sería un problema?
+si mi clase tuviera atributos que son objetos mutables daria problema, como una lista (List). Si se clona de manera superficial 
+la lista sería compartida entre el original y el clon, y cualquier cambio en uno afectaría al otro.
